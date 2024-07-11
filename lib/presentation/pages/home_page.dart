@@ -5,8 +5,6 @@ import 'package:myapp/presentation/widgets/user_list.dart';
 import 'package:myapp/presentation/widgets/widget_space.dart';
 import 'package:myapp/utils/text/modified_text.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -111,16 +109,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               bottomRight: Radius.circular(40),
                             ),
                           ),
-                          child:
-                               IconButton(
-                                      onPressed: () {
-                                        // pickProfileImage();
-                                      },
-                                      icon: const Icon(
-                                        Icons.camera_alt,
-                                        size: 24,
-                                        color: Colors.white,
-                                      )),
+                          child: IconButton(
+                              onPressed: () {
+                                // pickProfileImage();
+                              },
+                              icon: const Icon(
+                                Icons.camera_alt,
+                                size: 24,
+                                color: Colors.white,
+                              )),
                         ),
                       ),
                     ],
@@ -164,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 space(height: 12),
                 TextFormField(
-                   controller: ageController,
+                  controller: ageController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   autofocus: false,
                   decoration: InputDecoration(
@@ -194,28 +191,28 @@ class _HomeScreenState extends State<HomeScreen> {
               buttonName: 'Cancel',
               textColor: Colors.black87,
               color: const Color.fromRGBO(204, 204, 204, 1),
-             onTap: () {
+              onTap: () {
                 Navigator.of(context).pop();
-             },
+              },
             ),
             buttons(
               buttonName: 'Save',
               textColor: Colors.white,
               color: const Color.fromRGBO(23, 130, 225, 1),
-             onTap: () {
-                final name = nameController.text;
-              final age = int.tryParse(ageController.text) ?? 0;
-              // Handle image upload and get the imageUrl if needed
+              onTap: () {
+                //   final name = nameController.text;
+                // final age = int.tryParse(ageController.text) ?? 0;
+                // Handle image upload and get the imageUrl if needed
 
-              // final userModel = UserModel(
-              //   name: name,
-              //   age: age,
-              //   // imageUrl: imageUrl, // Replace with the actual image URL
-              // );
+                // final userModel = UserModel(
+                //   name: name,
+                //   age: age,
+                //   // imageUrl: imageUrl, // Replace with the actual image URL
+                // );
 
-              // context.read<UserProvider>().addUser(userModel);
-              Navigator.of(context).pop();
-             },
+                // context.read<UserProvider>().addUser(userModel);
+                Navigator.of(context).pop();
+              },
             ),
           ],
         );
@@ -223,32 +220,31 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-Widget buttons({
-  required VoidCallback onTap,
-  required String buttonName,
-  Color? color,
-  required Color textColor,
-}) {
-  return InkWell(
-    onTap: onTap, // Call the provided function when tapped
-    child: Container(
-      height: 28,
-      width: 95,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Center(
-        child: ModifiedText(
-          text: buttonName,
-          size: 12,
-          color: textColor,
+  Widget buttons({
+    required VoidCallback onTap,
+    required String buttonName,
+    Color? color,
+    required Color textColor,
+  }) {
+    return InkWell(
+      onTap: onTap, // Call the provided function when tapped
+      child: Container(
+        height: 28,
+        width: 95,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(
+          child: ModifiedText(
+            text: buttonName,
+            size: 12,
+            color: textColor,
+          ),
         ),
       ),
-    ),
-  );
-}
-
+    );
+  }
 
 // Future<String?> pickProfileImage() async {
 //   final picker = ImagePicker();
